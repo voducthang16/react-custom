@@ -17,6 +17,16 @@
         "noImplicitAny": false,
         "noEmit": true,
         "allowImportingTsExtensions": true,
+        "strictNullChecks": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/src/*": ["src/*"],
+            "@/components/*": ["src/components/*"],
+            "@/hooks/*": ["src/hooks/*"],
+            "@/utils/*": ["src/utils/*"],
+            "@/auth/*": ["src/auth/*"],
+            "@/context/*": ["src/context/*"],
+        }
     },
     "include": [
         "src"
