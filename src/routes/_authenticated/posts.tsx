@@ -1,4 +1,4 @@
-import { postsQueryOptions } from '@/src/query/post';
+import { postsQueryOptions } from '@/query/post';
 import { createFileRoute, Outlet, Link, useLoaderData } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_authenticated/posts')({

@@ -1,4 +1,4 @@
-import { AudioPlayerDemo } from '@/src/AudioPlayerDemo'
+import { AudioPlayerDemo } from '@/components/AudioPlayerDemo'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/music')({

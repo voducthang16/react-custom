@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { errorQueryOptions } from '@/src/query/error';
+import { errorQueryOptions } from '@/query/error';
 
 export const Route = createFileRoute('/_authenticated/error-test')({
     component: ErrorTest,

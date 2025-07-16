@@ -26,6 +26,7 @@
             "@/utils/*": ["src/utils/*"],
             "@/auth/*": ["src/auth/*"],
             "@/context/*": ["src/context/*"],
+            "@/query/*": ["src/query/*"],
         }
     },
     "include": [

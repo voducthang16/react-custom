@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
-import { postQueryOptions } from '@/src/query/post'
+import { postQueryOptions } from '@/query/post';
 
 export const Route = createFileRoute('/_authenticated/posts/$postId')({
     component: PostDetail,

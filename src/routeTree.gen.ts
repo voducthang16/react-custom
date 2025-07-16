@@ -11,6 +11,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZipRouteImport } from './routes/zip'
 import { Route as NotFoundRouteImport } from './routes/not-found'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LayoutRouteImport } from './routes/_layout'
@@ -34,6 +35,11 @@ const PLazyRoute = PLazyRouteImport.update({
   path: '/p',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/p.lazy').then((d) => d.Route))
+const ZipRoute = ZipRouteImport.update({
+  id: '/zip',
+  path: '/zip',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NotFoundRoute = NotFoundRouteImport.update({
   id: '/not-found',
   path: '/not-found',
@@ -113,6 +119,7 @@ const AuthenticatedPostsPostIdRoute =
 export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/not-found': typeof NotFoundRoute
+  '/zip': typeof ZipRoute
   '/p': typeof PLazyRoute
   '/about': typeof AuthenticatedAboutRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -129,6 +136,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/not-found': typeof NotFoundRoute
+  '/zip': typeof ZipRoute
   '/p': typeof PLazyRoute
   '/about': typeof AuthenticatedAboutRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -147,6 +155,7 @@ export interface FileRoutesById {
   '/_layout': typeof LayoutRouteWithChildren
   '/login': typeof LoginRoute
   '/not-found': typeof NotFoundRoute
+  '/zip': typeof ZipRoute
   '/p': typeof PLazyRoute
   '/_authenticated/about': typeof AuthenticatedAboutRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/login'
     | '/not-found'
+    | '/zip'
     | '/p'
     | '/about'
     | '/dashboard'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
   to:
     | '/login'
     | '/not-found'
+    | '/zip'
     | '/p'
     | '/about'
     | '/dashboard'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/_layout'
     | '/login'
     | '/not-found'
+    | '/zip'
     | '/p'
     | '/_authenticated/about'
     | '/_authenticated/dashboard'
@@ -217,6 +229,7 @@ export interface RootRouteChildren {
   LayoutRoute: typeof LayoutRouteWithChildren
   LoginRoute: typeof LoginRoute
   NotFoundRoute: typeof NotFoundRoute
+  ZipRoute: typeof ZipRoute
   PLazyRoute: typeof PLazyRoute
 }
 
@@ -227,6 +240,13 @@ declare module '@tanstack/react-router' {
       path: '/p'
       fullPath: '/p'
       preLoaderRoute: typeof PLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zip': {
+      id: '/zip'
+      path: '/zip'
+      fullPath: '/zip'
+      preLoaderRoute: typeof ZipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/not-found': {
@@ -392,6 +412,7 @@ const rootRouteChildren: RootRouteChildren = {
   LayoutRoute: LayoutRouteWithChildren,
   LoginRoute: LoginRoute,
   NotFoundRoute: NotFoundRoute,
+  ZipRoute: ZipRoute,
   PLazyRoute: PLazyRoute,
 }
 export const routeTree = rootRouteImport
