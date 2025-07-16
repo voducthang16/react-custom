@@ -31,6 +31,8 @@ declare module '@tanstack/react-router' {
     }
 }
 
+console.log(`%cBuild End: ${BUILD_TIME}`, "color: white; font-family: Montserrat; font-size: 24px; background-color: #1d1d1d; padding: 4px; border-radius: 4px");
+
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {

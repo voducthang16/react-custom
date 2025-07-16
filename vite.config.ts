@@ -62,4 +62,7 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
+    define: {
+        BUILD_TIME: JSON.stringify(new Date().toISOString()),
+    }
 })
